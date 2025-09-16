@@ -56,8 +56,8 @@ Are you frustrated with all those paid api keys or plan? What the hell PipeCat b
 
 ## Roadmap
 - [x] Establish client <--> gemini client <--> gemini websocket connection for 24/7
-- [ ] Standalone docker installation
-- [ ] Home Assistant Integration
+- [x] Standalone docker installation
+- [x] Home Assistant Integration
 
 
 
