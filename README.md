@@ -1,8 +1,7 @@
 # Gemini Live WebRTC React Native App with Signalling
 Are you frustrated with all those paid api keys or plan? What the hell PipeCat by Daily? (Restrict my plan to 168 hours per month?) I want my super intelligence AI to be slaved 24/7 and no bill!
-> News
+> Reference News
 > https://developers.googleblog.com/en/gemini-2-0-level-up-your-apps-with-real-time-multimodal-interactions/
-> Congratulation, all developers have been sold to Daily. 
 
 <img src="./public/gemini-webrtc.png" />
 
@@ -59,108 +58,29 @@ Are you frustrated with all those paid api keys or plan? What the hell PipeCat b
 - [x] Standalone docker installation
 - [x] Home Assistant Integration
 
-
-
-## Run the Sample App
-
-Clone the repository to your local environment.
-
-```js
-git clone https://github.com/Steven-Low/gemini-webrtc-app.git
-```
+## How To Use?
+This project is compose of 3 parts (android client, signalling server & home assistant integration). 
+You may follow the guide to setup 3 of them separately.
 
 ### Server Setup
+Go to https://github.com/gemini-fan/gemini_signalling_server.git
 
-#### Step 1: Go to server folder
+### Client App Setup
+Go to https://github.com/gemini-fan/react_native_webrtc_client.git
 
-```js
-
-cd gemini-webrtc-app/server
-
+### Home Assistant Setup
+#### Manual installation
+1. Go to HA custom_components directory and clone the repo 
 ```
-
-#### Step 2: Install Dependency
-
-```js
-
-npm install
+git clone https://github.com/gemini-fan/gemini_live_hass_integration.git
 ```
+2. Restart home assistant instance
+3. Search Gemini Live Conversation at the integration section
+4. Enter the signalling server url and gemini api key
+5. Call your gemini via caller id 666666 (default) from your client app
+6. Happy chatting :D
 
-#### Step 3: Run the project
 
-```js
 
-npm run start
-```
 
----
-
-### Gemini Client Setup
-#### Step 1: Go to client-python folder
-```js
-cd gemini-webrtc-app/client-python
-```
-
-#### Step 2: Create & activate virtual python environment
-```
-python3 -m venv venv
-source ./venv/bin/activate
-```
-
-#### Step 3: Install the dependencies
-```
-pip install -r requirements.txt
-```
-
-#### Step 4: Set your Gemini api-key in .env file
-```
-GOOGLE_API_KEY=sk-xxxxx
-```
-
-#### Step 5: Run the Gemini client
-```
-python app.py
-```
-
-### User Client Setup
-
-#### Step 1: Go to client folder
-
-```js
-
-cd gemini-webrtc-app/client
-```
-
-### Step 2: Install the dependecies
-
-```js
-npm install
-```
-
-### Step 3: Provide your local Ip address in `SocketIOClient`.
-
-in App.js file, update the Network Ip address.
-
-```js
-const socket = SocketIOClient("http://192.168.2.201:3500", {});
-```
-
-### Step 4: Run the react builder server
-```js
-npm run start
-```
-
-### Step 5: Connect adb devices
-replace 04e8 with your devices first 4 digits id via `lsusb`
-```
-echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
-adb devices 
-```
-
-### Step 6: Run your Application :D
-> Before you proceed, please ensure you have setup the environment correctly: https://reactnative.dev/docs/set-up-your-environment
-```js
-npm run android
-npm run ios
-```
 
